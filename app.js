@@ -1,6 +1,7 @@
 const express = require ('express')
 const app = express()
 const ehb = require('express-handlebars')
+const fortune = require ('./lib/fortune')
 
 app.engine('handlebars', ehb({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
@@ -12,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-  res.render('about', { fortune: getFortune() })
+  res.render('about', { fortune: fortune.getFortune() })
 })
 
 app.use((req, res) => {
@@ -28,14 +29,3 @@ app.use((err, req, res, next) => {
 app.listen(3000)
 
 console.log('app.js listening on port 3000')
-
-function getFortune() {
-  const fortunes = [
-    'Conquer your fears or they will conquer you.',
-    'Rivers need springs.',
-    'Do not fear what you don\'t know.',
-    'You will have a pleasant surprise.',
-    'Whenever possible, keep it simple.'
-  ]
-  return fortunes[Math.floor(Math.random() * fortunes.length)]
-}
