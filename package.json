@@ -6,5 +6,10 @@
   "dependencies": {
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "zombie": "^5.0.5"
   }
 }
