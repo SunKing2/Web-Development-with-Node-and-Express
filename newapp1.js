@@ -1,3 +1,4 @@
+yarn add express express-handlebars
 cat > app.js <<EOL
 const express = require('express')
 const app = express()
@@ -9,12 +10,6 @@ app.get('/', (req, res) => {
 app.listen(3000)
 console.log('app.js listening on port 3000')
 EOL
-rm package.json
-rm -r node_modules
-rm yarn.lock
-rm -r views
-mkdir -p views/layouts
-rm -r public
-yarn add express express-handlebars
-xfce4-terminal -e "node app.js"
-webdiff
+node app.js
+#open your browser to localhost:3000
+#control-c to stop
